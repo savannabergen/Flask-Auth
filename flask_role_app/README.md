@@ -1,4 +1,6 @@
-# Flask Authentication
+# Flask Role App
+
+The first part of the API etc etc
 
 Role based auth, registration, secure password handling, login/logout, protected routes
 
