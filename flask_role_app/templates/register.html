@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<h2 style="text-align:center; color: #FFF">Register your page</h2>
+<div style="margin-bottom: 1rem;">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.username.label }} {{ form.username() }}
+        {{ form.password.label }} {{ form.password() }}
+        {{ form.role.label }} {{ form.role() }}
+        <button type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

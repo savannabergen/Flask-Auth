@@ -16,14 +16,15 @@ login_manager.login_view = 'login'
 login_manager.init_app(app)
 
 def role_required(role):
-   def decorator(f):
-      @wraps(f)
-      def wrapped(*args, **kwargs):
-         if current_user.role != role:
-            abort(403)
+    def decorator(f):
+        def wrapper(*args, **kwargs):
+            if current_user.role != role:
+                abort(403)
             return f(*args, **kwargs)
-         return wrapped
-      return decorator
+        return wrapper
+    print("Returning decorator")
+    return decorator
+print(role_required('admin'))  # Check if this prints None
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -66,7 +67,7 @@ def dashboard():
 @login_required
 @role_required('admin')
 def admin_page():
-   return "Welcome Admin!"
+    return "Welcome Admin!"
 
 @app.route('/logout')
 @login_required
@@ -76,5 +77,5 @@ def logout():
 
 if __name__ == '__main__':
 	with app.app_context():
-		db.create_all
+		db.create_all()
 	app.run(debug=True)

@@ -3,5 +3,17 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-
+  <h2 styles="text-align:center; color:#333;">Login to your account</h2>
+  <div style="margin-bottom: 1rem;">
+    <form method="POST">
+      <div style="margin-bottom: 1rem;">
+        <label for="username" style="display: block;">Username</label>
+        <input type="text"
+               id="username"
+               name="username"
+               placeholder="Enter your username"
+               style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius:  4px;">
+      </div>
+    </form>
+  </div>
 {% endblock %}
